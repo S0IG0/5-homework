@@ -1,4 +1,5 @@
 import os
+from sys import argv
 from GitClasses.Sha1Hash import Sha1Hash
 from GitClasses.Commit import Commit
 from zlib import decompress
@@ -66,5 +67,5 @@ def main(path) -> None:
 
 if __name__ == '__main__':
     main(
-        r'D:\Project\С++\TestGit\.git\objects',
+        argv[1:] if len(argv[1:]) != 0 else 'D:\Project\С++\TestGit\.git\objects',
     )
