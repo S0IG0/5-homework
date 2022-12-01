@@ -7,11 +7,11 @@ import graphviz
 
 
 def create_graph(data: dict[str, list[Commit]]) -> None:
-    dot = graphviz.Graph(node_attr={'shape': 'box'})
+    dot = graphviz.Graph(node_attr={'shape': 'box'}, graph_attr={'layout': 'dot'})
     for commit in data['commits']:
         node = str(commit.sha1_hash)
         dot.node(node, commit.commit)
-        [dot.edge(node, str(item)) for item in commit.parents]
+        [dot.edge(node, str(item), node[:8]) for item in commit.parents]
     dot.render(r'graph\graph.gv', view=True)
 
 
@@ -66,5 +66,5 @@ def main(path) -> None:
 
 if __name__ == '__main__':
     main(
-        r'.\testGit\.git\objects',
+        r'D:\Project\С++\TestGit\.git\objects',
     )
