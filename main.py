@@ -67,5 +67,5 @@ def main(path) -> None:
 
 if __name__ == '__main__':
     main(
-        argv[1:] if len(argv[1:]) != 0 else 'D:\Project\С++\TestGit\.git\objects',
+        argv[1:] if len(argv[1:]) != 0 else r'D:\Project\С++\TestGit\.git\objects',
     )
